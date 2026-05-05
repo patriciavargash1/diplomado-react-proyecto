@@ -9,7 +9,6 @@ import {
   TextField,
   IconButton,
   Chip,
-  Paper,
   Container,
   Typography,
   CircularProgress,
@@ -32,6 +31,7 @@ export const TaskPage = () => {
   const [editForm, setEditForm] = useState<UpdateTask>({});
   const [createForm, setCreateForm] = useState<TaskFormValues>({ name: '' });
   const [creating, setCreating] = useState(false);
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
   const axios = useAxios();
   const { showAlert } = useAlert();
 
@@ -170,8 +170,9 @@ export const TaskPage = () => {
           columns={columns}
           loading={loading}
           getRowId={(row) => row.id}
-          pageSize={10}
-          rowsPerPageOptions={[10]}
+          paginationModel={paginationModel}
+          onPaginationModelChange={setPaginationModel}
+          pageSizeOptions={[10]}
         />
       </Box>
 
