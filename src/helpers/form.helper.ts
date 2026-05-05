@@ -19,7 +19,7 @@ export const handleZodErros = <T>(error: unknown, rawData: Partial<T>) => {
   }
   return {
     errors: {},
-    message: 'Paso un problema',
+    message: 'Pasó un problema',
     formData: rawData,
   };
 };
